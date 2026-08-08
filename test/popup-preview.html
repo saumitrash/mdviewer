@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Popup preview</title>
+    <link rel="stylesheet" href="../styles/fonts.css" />
+    <link rel="stylesheet" href="../popup/popup.css" />
+    <style>
+      body { margin: 24px auto; border: 1px solid #8884; border-radius: 12px; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <script>
+      /* Loads the real popup markup and script against a stubbed chrome.* API. */
+      window.chrome = {
+        runtime: { sendMessage: async () => ({}) },
+        storage: {
+          sync: {
+            get: async (d) => ({ ...d, ...JSON.parse(localStorage.getItem('mdv') || '{}') }),
+            set: async (patch) =>
+              localStorage.setItem(
+                'mdv',
+                JSON.stringify({ ...JSON.parse(localStorage.getItem('mdv') || '{}'), ...patch })
+              )
+          }
+        },
+        tabs: {
+          query: async () => [{ id: 1, url: 'file:///example.md' }],
+          sendMessage: async () => ({ markdown: true })
+        }
+      };
+    </script>
+    <script type="module">
+      const html = await fetch('../popup/popup.html').then((r) => r.text());
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      document.body.append(...doc.body.children);
+      document.querySelectorAll('body > script').forEach((s) => s.remove());
+      const s = document.createElement('script');
+      s.src = '../popup/popup.js';
+      document.body.appendChild(s);
+    </script>
+  </body>
+</html>

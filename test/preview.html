@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Viewer preview</title>
+    <!-- The real extension injects these via chrome.scripting.insertCSS. -->
+    <link rel="stylesheet" href="../styles/fonts.css" />
+    <link rel="stylesheet" href="../vendor/katex.min.css" />
+    <link rel="stylesheet" href="../styles/viewer.css" />
+  </head>
+  <body>
+    <pre id="src"></pre>
+    <script src="shim.js"></script>
+    <script src="fixture.js"></script>
+    <script src="../vendor/marked.min.js"></script>
+    <script src="../vendor/purify.min.js"></script>
+    <script src="../vendor/highlight.min.js"></script>
+    <script src="../vendor/katex.min.js"></script>
+    <script src="../vendor/mermaid.min.js"></script>
+    <script src="../src/viewer.js"></script>
+  </body>
+</html>

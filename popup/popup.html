@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-mdv-font="modern">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../styles/fonts.css" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>Markdown Viewer</title>
+  </head>
+  <body>
+    <header class="head">
+      <div class="mark"></div>
+      <div>
+        <h1>Markdown Viewer</h1>
+        <p class="sub" id="status">Checking page…</p>
+      </div>
+    </header>
+
+    <section class="group">
+      <label class="row switch-row">
+        <span>
+          <span class="label">Render markdown automatically</span>
+          <span class="hint">Open .md files in enriched view by default</span>
+        </span>
+        <input type="checkbox" id="renderByDefault" class="switch" />
+      </label>
+    </section>
+
+    <section class="group">
+      <div class="group-title">Typeface</div>
+      <div class="specimens" id="specimens"></div>
+    </section>
+
+    <section class="group">
+      <div class="row">
+        <span class="label">Appearance</span>
+        <div class="seg" id="theme" data-setting="theme">
+          <button data-value="auto">Auto</button>
+          <button data-value="light">Light</button>
+          <button data-value="dark">Dark</button>
+        </div>
+      </div>
+      <div class="row">
+        <span class="label">Reading width</span>
+        <div class="seg" id="contentWidth" data-setting="contentWidth">
+          <button data-value="narrow">S</button>
+          <button data-value="normal">M</button>
+          <button data-value="wide">L</button>
+          <button data-value="full">Full</button>
+        </div>
+      </div>
+      <div class="row">
+        <span class="label">Text size <em id="fontSizeVal"></em></span>
+        <input type="range" id="fontSize" min="13" max="26" step="1" />
+      </div>
+      <div class="row">
+        <span class="label">Line height <em id="lineHeightVal"></em></span>
+        <input type="range" id="lineHeight" min="1.35" max="2.1" step="0.05" />
+      </div>
+    </section>
+
+    <section class="group">
+      <label class="row switch-row">
+        <span class="label">Table of contents</span>
+        <input type="checkbox" id="showToc" class="switch" />
+      </label>
+      <label class="row switch-row">
+        <span class="label">Line numbers in code</span>
+        <input type="checkbox" id="lineNumbers" class="switch" />
+      </label>
+      <p class="note" id="reloadNote">Line numbers apply on next page load.</p>
+    </section>
+
+    <footer class="foot">
+      <div class="keys">
+        <span><kbd>Alt</kbd><kbd>M</kbd> toggle raw</span>
+        <span><kbd>T</kbd> contents</span>
+        <span><kbd>D</kbd> dark</span>
+      </div>
+      <button id="reset" class="link">Reset</button>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

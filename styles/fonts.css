@@ -1,0 +1,134 @@
+/* Bundled variable fonts. Everything is latin-subset woff2, loaded locally —
+   no network requests, no FOUT on file:// pages. */
+
+@font-face {
+  font-family: 'MDV Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('../fonts/inter.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'MDV Inter';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('../fonts/inter-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MDV Source Serif';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: block;
+  src: url('../fonts/source-serif.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'MDV Source Serif';
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: block;
+  src: url('../fonts/source-serif-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MDV Literata';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: block;
+  src: url('../fonts/literata.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'MDV Literata';
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: block;
+  src: url('../fonts/literata-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MDV Plex Sans';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url('../fonts/ibm-plex-sans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MDV JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: block;
+  src: url('../fonts/jetbrains-mono.woff2') format('woff2');
+}
+
+:root {
+  --mdv-stack-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  --mdv-stack-mono-system: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+  --mdv-font-mono: 'MDV JetBrains Mono', var(--mdv-stack-mono-system);
+}
+
+/* ---- Typeface themes -------------------------------------------------- */
+
+/* Modern: Inter throughout. Neutral, screen-native, excellent at small sizes. */
+:root[data-mdv-font='modern'] {
+  --mdv-font-sans: 'MDV Inter', var(--mdv-stack-system);
+  --mdv-font-body: 'MDV Inter', var(--mdv-stack-system);
+  --mdv-font-head: 'MDV Inter', var(--mdv-stack-system);
+  --mdv-body-weight: 400;
+  --mdv-head-weight: 650;
+  --mdv-head-tracking: -0.021em;
+  --mdv-body-tracking: -0.006em;
+  --mdv-measure: 44rem;
+}
+
+/* Editorial: Source Serif body with Inter headings — long-form reading. */
+:root[data-mdv-font='editorial'] {
+  --mdv-font-sans: 'MDV Inter', var(--mdv-stack-system);
+  --mdv-font-body: 'MDV Source Serif', Georgia, 'Times New Roman', serif;
+  --mdv-font-head: 'MDV Inter', var(--mdv-stack-system);
+  --mdv-body-weight: 400;
+  --mdv-head-weight: 640;
+  --mdv-head-tracking: -0.02em;
+  --mdv-body-tracking: 0;
+  --mdv-measure: 42rem;
+}
+
+/* Book: Literata throughout — warm, high x-height, built for extended reading. */
+:root[data-mdv-font='book'] {
+  --mdv-font-sans: 'MDV Literata', Georgia, serif;
+  --mdv-font-body: 'MDV Literata', Georgia, serif;
+  --mdv-font-head: 'MDV Literata', Georgia, serif;
+  --mdv-body-weight: 400;
+  --mdv-head-weight: 600;
+  --mdv-head-tracking: -0.012em;
+  --mdv-body-tracking: 0;
+  --mdv-measure: 40rem;
+}
+
+/* Technical: IBM Plex Sans — engineered, unfussy, great for specs and docs. */
+:root[data-mdv-font='technical'] {
+  --mdv-font-sans: 'MDV Plex Sans', var(--mdv-stack-system);
+  --mdv-font-body: 'MDV Plex Sans', var(--mdv-stack-system);
+  --mdv-font-head: 'MDV Plex Sans', var(--mdv-stack-system);
+  --mdv-body-weight: 400;
+  --mdv-head-weight: 600;
+  --mdv-head-tracking: -0.014em;
+  --mdv-body-tracking: 0;
+  --mdv-measure: 44rem;
+}
+
+/* System: whatever the OS ships. Zero font loading, always familiar. */
+:root[data-mdv-font='system'] {
+  --mdv-font-sans: var(--mdv-stack-system);
+  --mdv-font-body: var(--mdv-stack-system);
+  --mdv-font-head: var(--mdv-stack-system);
+  --mdv-font-mono: var(--mdv-stack-mono-system);
+  --mdv-body-weight: 400;
+  --mdv-head-weight: 650;
+  --mdv-head-tracking: -0.018em;
+  --mdv-body-tracking: 0;
+  --mdv-measure: 44rem;
+}
